@@ -4,7 +4,7 @@
  * ===========================================================
  * 🧑‍💻 Author: Sheikh Tamim (ST | Sheikh Tamim)
  * 🔰 Owner & Developer
- * 🌐 GitHub: https://github.com/sheikhtamimlover
+ * 🌐 GitHub: https://github.com/N1SA9EDITZ
  * 📸 Instagram: https://instagram.com/sheikh.tamim_lover
  * 🧠 Description:
  *   This module generates beautiful Messenger AI themes 
@@ -27,7 +27,7 @@ var utils = require("../utils");
 var log = require("npmlog");
 
 module.exports = function (defaultFuncs, api, ctx) {
-      /** Developed by Sheikh Tamim | GitHub: sheikhtamimlover | Instagram: @sheikh.tamim_lover */
+      /** Developed by Sheikh Tamim | GitHub: N1SA9EDITZ | Instagram: @sheikh.tamim_lover */
     return function suggestFriend(count, cursor, callback) {
         var resolveFunc = function () { };
         var rejectFunc = function () { };
@@ -130,4 +130,4 @@ module.exports = function (defaultFuncs, api, ctx) {
         return returnPromise;
     };
 };
-/** Developed by Sheikh Tamim | GitHub: sheikhtamimlover | Please give credits if reused. */
+/** Developed by Sheikh Tamim | GitHub: N1SA9EDITZ | Please give credits if reused. */

@@ -51,7 +51,7 @@ function startMqttSpinner(region) {
         process.stdout.write(
             '\r  ' +
             C.bold + C.bCyan + frame + C.reset + '  ' +
-            C.cyan + 'ST-FCA' + C.reset + ' ' +
+            C.cyan + 'KURUMI-FCA' + C.reset + ' ' +
             C.dim + 'connecting to MQTT' + C.reset +
             regionStr +
             C.dim + ' ...' + C.reset +
@@ -85,11 +85,11 @@ function printMqttBanner(region, autoReconnect) {
     var reconnVal = reconnClr + reconnTxt + rst;
 
     var rows = [
-        titleClr + '  ✅  ST-FCA MQTT Connected' + rst,
+        titleClr + '  ✅  KURUMI-FCA MQTT Connected' + rst,
         '',
         labelClr + '  📍  Region         ' + rst + valClr + regionVal + rst,
         labelClr + '  🔄  Auto-reconnect  ' + rst + reconnVal,
-        urlClr   + '  🌐  github.com/sheikhtamimlover/ST-BOT' + rst,
+        urlClr   + '  🌐  github.com/N1SA9EDITZ/ST-BOT' + rst,
         '',
         accentClr + '  💎  Author  ST | Sheikh Tamim' + rst
     ];
