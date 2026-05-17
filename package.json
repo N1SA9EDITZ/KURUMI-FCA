@@ -1,6 +1,6 @@
 {
   "name": "kurumi-fca",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Unofficial Facebook Chat API for Node.js - by N1SA9",
   "main": "index.js",
   "files": [
