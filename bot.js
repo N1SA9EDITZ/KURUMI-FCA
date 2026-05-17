@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const fca = require('./index');
 
-const PREFIX = '!';
+const PREFIX = ',';
 const THREAD_ID = ""; //your group/thread tid id add 
 const COOKIE_FILE = path.join(__dirname, 'cookie.txt'); // account connect json cookie add
 const TST = path.join(__dirname, 'tst'); // your attachment test send folder
