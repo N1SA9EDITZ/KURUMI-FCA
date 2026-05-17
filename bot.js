@@ -6,8 +6,8 @@ const fca = require('./index');
 
 const PREFIX = '!';
 const THREAD_ID = ""; //your group/thread tid id add 
-const COOKIE_FILE = path.join(__dirname, 'cookie.txt'); // account connect  json cookie add
-const TST = path.join(__dirname, 'tst'); // your attahement test send folder
+const COOKIE_FILE = path.join(__dirname, 'cookie.txt'); // account connect json cookie add
+const TST = path.join(__dirname, 'tst'); // your attachment test send folder
 
 // ─── Command definitions ───────────────────────────────────────────────────────
 const commands = {
@@ -165,7 +165,7 @@ async function runTests(api, threadID) {
     const steps = [
         {
             label: '1/5 Text',
-            run: () => send(api, tid, 'Hello from ST-FCA v1.0.28! ✅')
+            run: () => send(api, tid, 'Hello from kurumi-fca v1.1.0! ✅')
         },
         {
             label: '2/5 Two images',
@@ -250,7 +250,6 @@ async function main() {
 
             const type = event.type;
 
-            // Log incoming messages
             if (type === 'message' || type === 'message_reply') {
                 console.log(`[MSG] [${event.threadID}] ${event.senderID}: ${event.body || '(attachment)'}`);
 
@@ -272,8 +271,6 @@ async function main() {
                     send(api, event.threadID, `❌ Error in ${PREFIX}${cmdName}: ${e && e.message || String(e)}`).catch(() => {});
                 });
 
-            } else if (type === 'typ') {
-                // Silently log typing
             } else if (type === 'message_reaction') {
                 console.log(`[REACT] ${event.senderID} → ${event.reaction} on ${event.messageID}`);
             }
