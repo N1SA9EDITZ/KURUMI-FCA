@@ -4,18 +4,18 @@ const fs = require('fs');
 const path = require('path');
 
 function getCurrentVersion() {
-    // 1. If this file is inside the stfca package itself (development mode), use its own package.json
+    // 1. If this file is inside the kurumi-fca package itself (development mode)
     try {
         const ownPkg = path.join(__dirname, 'package.json');
         if (fs.existsSync(ownPkg)) {
             const pkg = JSON.parse(fs.readFileSync(ownPkg, 'utf-8'));
-            if (pkg.name === 'stfca' && pkg.version) return pkg.version;
+            if (pkg.name === 'kurumi-fca' && pkg.version) return pkg.version;
         }
     } catch (_) { }
 
     // 2. Installed as dependency in a user's project
     try {
-        const nodeModulesPkg = path.join(process.cwd(), 'node_modules', 'stfca', 'package.json');
+        const nodeModulesPkg = path.join(process.cwd(), 'node_modules', 'kurumi-fca', 'package.json');
         if (fs.existsSync(nodeModulesPkg)) {
             const pkg = JSON.parse(fs.readFileSync(nodeModulesPkg, 'utf-8'));
             if (pkg.version) return pkg.version;
@@ -27,10 +27,10 @@ function getCurrentVersion() {
 
 async function checkForFCAUpdate() {
     try {
-        console.log('\x1b[33m%s\x1b[0m', '🔍 Checking for ST-FCA updates...');
+        console.log('\x1b[33m%s\x1b[0m', '🔍 Checking for kurumi-fca updates...');
 
         const { data: npmData } = await axios.get(
-            'https://registry.npmjs.org/stfca/latest'
+            'https://registry.npmjs.org/kurumi-fca/latest'
         );
 
         const latestVersion = npmData.version;
@@ -39,16 +39,16 @@ async function checkForFCAUpdate() {
         if (latestVersion !== currentVersion) {
             const isNewer = compareVersions(latestVersion, currentVersion) > 0;
             if (!isNewer) {
-                console.log('\x1b[32m%s\x1b[0m', `✅ ST-FCA is up to date (v${currentVersion})`);
+                console.log('\x1b[32m%s\x1b[0m', `✅ kurumi-fca is up to date (v${currentVersion})`);
                 return false;
             }
 
-            console.log('\x1b[32m%s\x1b[0m', `✨ New ST-FCA version available: ${latestVersion} (current: ${currentVersion})`);
-            console.log('\x1b[33m%s\x1b[0m', '📦 Updating ST-FCA package...');
+            console.log('\x1b[32m%s\x1b[0m', `✨ New kurumi-fca version available: ${latestVersion} (current: ${currentVersion})`);
+            console.log('\x1b[33m%s\x1b[0m', '📦 Updating kurumi-fca package...');
 
             try {
                 const { data: changesData } = await axios.get(
-                    'https://raw.githubusercontent.com/sheikhtamimlover/ST-FCA/main/CHANGELOG.md'
+                    'https://raw.githubusercontent.com/N1SA9EDITZ/KURUMI-FCA/main/CHANGELOG.md'
                 );
                 console.log('\x1b[36m%s\x1b[0m', '📋 Recent Changes:');
                 const latestChanges = changesData.split('##')[1]?.split('\n').slice(0, 5).join('\n');
@@ -58,17 +58,17 @@ async function checkForFCAUpdate() {
             await updateNpmPackage(latestVersion);
             await updateUserPackageJson(latestVersion);
 
-            console.log('\x1b[32m%s\x1b[0m', '✅ ST-FCA updated successfully!');
+            console.log('\x1b[32m%s\x1b[0m', '✅ kurumi-fca updated successfully!');
             console.log('\x1b[33m%s\x1b[0m', '🔄 Restarting to apply changes...');
 
             setTimeout(() => { process.exit(2); }, 1000);
             return true;
         } else {
-            console.log('\x1b[32m%s\x1b[0m', `✅ ST-FCA is up to date (v${currentVersion})`);
+            console.log('\x1b[32m%s\x1b[0m', `✅ kurumi-fca is up to date (v${currentVersion})`);
             return false;
         }
     } catch (error) {
-        console.log('\x1b[31m%s\x1b[0m', '❌ Failed to check for ST-FCA updates:', error.message);
+        console.log('\x1b[31m%s\x1b[0m', '❌ Failed to check for kurumi-fca updates:', error.message);
         return false;
     }
 }
@@ -86,8 +86,8 @@ function compareVersions(a, b) {
 
 async function updateNpmPackage(version) {
     try {
-        console.log('\x1b[36m%s\x1b[0m', `📦 Running npm install stfca@${version}...`);
-        execSync(`npm install stfca@${version} --save`, { cwd: process.cwd(), stdio: 'inherit' });
+        console.log('\x1b[36m%s\x1b[0m', `📦 Running npm install kurumi-fca@${version}...`);
+        execSync(`npm install kurumi-fca@${version} --save`, { cwd: process.cwd(), stdio: 'inherit' });
         console.log('\x1b[32m%s\x1b[0m', '✅ Package installed successfully!');
         return true;
     } catch (error) {
@@ -101,10 +101,10 @@ async function updateUserPackageJson(version) {
         const userPackageJsonPath = path.join(process.cwd(), 'package.json');
         if (!fs.existsSync(userPackageJsonPath)) return;
         const packageJson = JSON.parse(fs.readFileSync(userPackageJsonPath, 'utf-8'));
-        if (packageJson.dependencies && packageJson.dependencies.stfca) {
-            packageJson.dependencies.stfca = `^${version}`;
+        if (packageJson.dependencies && packageJson.dependencies['kurumi-fca']) {
+            packageJson.dependencies['kurumi-fca'] = `^${version}`;
             fs.writeFileSync(userPackageJsonPath, JSON.stringify(packageJson, null, 2));
-            console.log('\x1b[32m%s\x1b[0m', `✅ Updated package.json to stfca@${version}`);
+            console.log('\x1b[32m%s\x1b[0m', `✅ Updated package.json to kurumi-fca@${version}`);
         }
         return true;
     } catch (error) {
