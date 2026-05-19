@@ -2971,11 +2971,6 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function getCookieJar() {
-    var tough = require("tough-cookie");
-    return new tough.CookieJar();
-}
-
 module.exports = {
     cleanHTML,
     isReadableStream: isReadableStream,
@@ -3025,6 +3020,5 @@ module.exports = {
     getEventTime,
     getSessionID,
     getFormData,
-    delay,
-    getCookieJar
+    delay
 };
