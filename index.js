@@ -14,11 +14,11 @@ log.maxRecordSize = 100;
 var checkVerified = null;
 const Boolean_Option = ['online', 'selfListen', 'listenEvents', 'updatePresence', 'forceLogin', 'autoMarkDelivery', 'autoMarkRead', 'listenTyping', 'autoReconnect', 'emitReady'];
 global.ditconmemay = false;
-global.kurumi-fcaUpdateChecked = false;
+global.kurumifcaUpdateChecked = false;
 
 // Auto-check for updates on package load (non-blocking)
-if (!global.kurumi-fcaUpdateChecked) {
-    global.kurumi-fcaUpdateChecked = true;
+if (!global.kurumifcaUpdateChecked) {
+    global.kurumifcaUpdateChecked = true;
     const { checkForFCAUpdate } = require("./checkUpdate");
     setImmediate(() => {
         checkForFCAUpdate().catch(() => {
@@ -646,8 +646,8 @@ function loginHelper(appState, email, password, globalOptions, callback, prCallb
 
 function login(loginData, options, callback) {
     // Check for updates (non-blocking, only once per session)
-    if (!global.kurumi-fcaUpdateChecked) {
-        global.kurumi-fcaUpdateChecked = true;
+    if (!global.kurumifcaUpdateChecked) {
+        global.kurumifcaUpdateChecked = true;
         checkForFCAUpdate().catch(err => {
             // Silently ignore update check errors to not block login
         });
