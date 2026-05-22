@@ -16,9 +16,9 @@
 
 ## 📦 Installation
 
-\`\`\`
+```bash
 npm install kurumi-fca
-\`\`\`
+```
 
 ## 🚀 Basic Usage
 
