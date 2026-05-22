@@ -22,7 +22,7 @@ npm install kurumi-fca
 
 ## 🚀 Basic Usage
 
-\`\`\`js
+```js
 const login = require("kurumi-fca");
 
 login({ appState: [] }, (err, api) => {
@@ -31,7 +31,7 @@ login({ appState: [] }, (err, api) => {
         api.sendMessage(event.body, event.threadID);
     });
 });
-\`\`\`
+```
 
 ## 👨‍💻 Author
 
