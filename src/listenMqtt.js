@@ -89,9 +89,9 @@ function printMqttBanner(region, autoReconnect) {
         '',
         labelClr + '  📍  Region         ' + rst + valClr + regionVal + rst,
         labelClr + '  🔄  Auto-reconnect  ' + rst + reconnVal,
-        urlClr   + '  🌐  github.com/N1SA9EDITZ/ST-BOT' + rst,
+        urlClr   + '  🌐  github.com/EpicDanger198/KuRuMi-V3' + rst,
         '',
-        accentClr + '  💎  Author  ST | Sheikh Tamim' + rst
+        accentClr + '  💎  Author  N1SA9' + rst
     ];
 
     process.stdout.write('\n');
