@@ -2,12 +2,12 @@
 
 [
 
-[npm version](https://img.shields.io/npm/v/kurumi-fca.svg)
+![npm version](https://img.shields.io/npm/v/kurumi-fca.svg)
 
 ](https://www.npmjs.com/package/kurumi-fca)
 [
 
-[npm downloads](https://img.shields.io/npm/dm/kurumi-fca.svg)
+![npm downloads](https://img.shields.io/npm/dm/kurumi-fca.svg)
 
 ](https://www.npmjs.com/package/kurumi-fca)
 
